@@ -2,7 +2,7 @@
   "name": "gympoint-backend",
   "version": "1.0.0",
   "description": "express server backend",
-  "main": "index.js",
+  "main": "server.js",
   "repository": "https://github.com/patrick-vieira/Gympoint",
   "author": "Patrick Vieira",
   "license": "MIT",
