@@ -49,19 +49,115 @@
 
   ```
 
-  - create another folder called `database` this folder holds the infrastructure layer from our database with migrations and seds.
-
-  - on `index.js` we load the models
-
-
-
+  - create another folder called `database` this folder holds the infrastructure layer from our database with f olders `migrations` and `seeds`.
 
 
 ## Migrations to make changes on DB.
 
+  > create a migration
+
   ```
   yarn sequelize migration:create --name=create-users
+  ```
+
+  ```js
+  module.exports = {
+    up: (queryInterface, Sequelize) => {
+      return queryInterface.createTable('users', {
+        id: {
+          type: Sequelize.INTEGER,
+          allowNull: false,
+          autoIncrement: true,
+          primaryKey: true,
+        },
+        name: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        email: {
+          type: Sequelize.STRING,
+          allowNull: false,
+          unique: true,
+        },
+        password_hash: {
+          type: Sequelize.STRING,
+          allowNull: false,
+        },
+        role: {
+          type: Sequelize.INTEGER,
+          defaultValue: 0,
+          allowNull: false,
+        },
+        created_at: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+        updated_at: {
+          type: Sequelize.DATE,
+          allowNull: false,
+        },
+      });
+    },
+
+    down: (queryInterface, Sequelize) => {
+      return queryInterface.dropTable('users');
+    },
+  };
+```
+
+  > execute  migration
+
+  ```
   yarn sequelize db:migrate
+  ```
+
+  > to undo the last migration
+
+  ```
   yarn sequelize db:migrate:undo
+  ```
+  > to undo all migrations
+
+  ```
   yarn sequelize db:migrate:undo:all
   ```
+
+  ## Working with models
+
+
+  ```js
+  import Sequelize, { Model } from 'sequelize';
+
+  class User extends Model {
+    static init(connection) {
+      super.init(
+        {
+          name: Sequelize.STRING,
+          email: Sequelize.STRING,
+          password_hash: Sequelize.STRING,
+          role: Sequelize.INTEGER,
+        },
+        {
+          sequelize: connection,
+        }
+      );
+    }
+  }
+
+  export default User;
+```
+
+  > load models on app
+
+  - In `index.js` we load the models
+
+  on app.js in the root folder we import our database
+
+  ```js
+  import './database';
+  ```
+
+
+
+
+
