@@ -158,7 +158,7 @@ export default new SessionController();
 
   and our UserController like that:
 
-  ````js
+  ``` js
   import User from '../models/Users';
 
   class UserController {
@@ -200,4 +200,6 @@ export default new SessionController();
   }
 
   export default new UserController();
-  ´´´´
+
+  ```
+
