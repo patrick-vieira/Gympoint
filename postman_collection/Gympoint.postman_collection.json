@@ -22,7 +22,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"yolo4\",\n\t\"email\": \"yolo4@gmail.com\",\n\t\"password\": \"yoyo\"\n}",
+							"raw": "{\n\t\"name\": \"yolo4\",\n\t\"email\": \"yolo4@gmail.com\",\n\t\"password\": \"yoyoyo\",\n\t\"confirmPassword\": \"yoyoyo\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -49,7 +49,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NiwibmFtZSI6InlvbG80Iiwicm9sZSI6MCwiaWF0IjoxNTcxOTIwMzA1LCJleHAiOjE1NzE5MjEyMDV9.LGEgg2yY-2cOLiTJ_EUH3jpe2Mtkk33YNctm-KDPH9E",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJyb2xlIjowLCJpYXQiOjE1NzIxMTkxMTMsImV4cCI6MTU3MjEyMDAxM30.IUo-iMfBn6mRH9Sz00EKNJJBoBptTHtxO9D4lzEXQaY",
 									"type": "string"
 								}
 							]
@@ -65,7 +65,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"yolo4\",\n\t\"email\": \"yolo44@gmail.com\",\n\t\"oldPassword\": \"yoyo2\",\n\t\"password\": \"yoyo2\"\n}",
+							"raw": "{\n\t\"email\": \"admin@gympoint.com\",\n\t\"oldPassword\": \"1234567\",\n\t\"password\": \"123456\",\n\t\"confirmPassword\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -104,7 +104,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"name\": \"yolo4\",\n\t\"email\": \"yolo44@gmail.com\",\n\t\"password\": \"yoyo2\"\n}",
+							"raw": "{\n\t\"email\": \"admin@gympoint.com\",\n\t\"password\": \"123456\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -118,6 +118,98 @@
 							],
 							"path": [
 								"sessions"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Student",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJyb2xlIjowLCJpYXQiOjE1NzIxMzA3NzgsImV4cCI6MTU3MjEzNDM3OH0.Lhu80kzRjUkhbQt4tScSIbapAuaebBzrkOp70IIjmXs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"name\": \"Patrick\",\n\t\"email\": \"pdsv881@gmail.com\",\n\t\"age\": 31,\n    \"weight\": \"74.45\",\n    \"height\": \"1.93\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibmFtZSI6IkFkbWluaXN0cmFkb3IiLCJyb2xlIjowLCJpYXQiOjE1NzIxMzI2MDcsImV4cCI6MTU3MjEzNjIwN30.M5ikRXA1Bh80uyx3URPzPsFiRfKVXIBfGzVoFoc6NAA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"id\": 4,\n\t\"name\": \"Patrick\",\n\t\"email\": \"pdsv88@gmail.com\",\n\t\"age\": 31,\n    \"weight\": \"74.45\",\n    \"height\": \"1.93\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/students",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"students"
 							]
 						}
 					},
